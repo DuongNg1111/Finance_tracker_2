@@ -1,6 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
-from database.transaction_model import TransactionModel
+from database.transaction_model import TransactionModel 
 
 class FinanceAnalyzer:
     def __init__(self, 
