@@ -7,7 +7,7 @@ from database.category_models import CategoryModel
 def init_models():
     return CategoryModel()
 
-category = init_models()
+category = init_models()  
 
 #page configuration
 st.set_page_config(
