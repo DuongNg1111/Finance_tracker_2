@@ -11,4 +11,4 @@ wheels/
 .env
 
 # streamlit
-.streamlit
+.streamlit/secrets.toml
