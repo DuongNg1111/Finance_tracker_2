@@ -24,18 +24,27 @@
 #     result = Transaction_model.delete_trasaction("6925b9764900fed8f4bbd053")
 #     print(f"Deleted count: {result+1}")
 
-import streamlit
-import authlib
-import dotenv
-import matplotlib
-import pandas
-import plotly
-import pymongo
+# import streamlit
+# import authlib
+# import dotenv
+# import matplotlib
+# import pandas
+# import plotly
+# import pymongo
 
-print("streamlit:", streamlit.__version__)
-print("authlib:", authlib.__version__)
-# print("python-dotenv:", dotenv.__version__)
-print("matplotlib:", matplotlib.__version__)
-print("pandas:", pandas.__version__)
-print("plotly:", plotly.__version__)
-print("pymongo:", pymongo.__version__)
+# print("streamlit:", streamlit.__version__)
+# print("authlib:", authlib.__version__)
+# # print("python-dotenv:", dotenv.__version__)
+# print("matplotlib:", matplotlib.__version__)
+# print("pandas:", pandas.__version__)
+# print("plotly:", plotly.__version__)
+# print("pymongo:", pymongo.__version__)
+# import importlib
+
+# modules = ["streamlit", "python-dotenv", "pandas", "numpy", "altair", "pyarrow"]
+# for m in modules:
+#     try:
+#         importlib.import_module(m)
+#         print(f"{m} ✅ đã cài")
+#     except ModuleNotFoundError:
+#         print(f"{m} ❌ chưa cài")
