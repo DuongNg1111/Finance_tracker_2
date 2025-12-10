@@ -20,5 +20,5 @@ COLLECTIONS = {
 } 
 
 TRANSACTION_TYPES = ['Expense', "Income"] 
-DEFAULT_CATEGORIES_EXPENSE = ["Shopping", "Transportation", "Entertainment"] 
+DEFAULT_CATEGORIES_EXPENSE = ["Groceries", "Transportation", "Housing"]
 DEFAULT_CATEGORIES_INCOME = ["Salary", "Freelance", "Gift/Voucher"]
