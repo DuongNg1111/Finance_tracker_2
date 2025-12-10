@@ -11,7 +11,7 @@ try:
 except (FileNotFoundError, KeyError):
     MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 
-DATABASE_NAME = "finance_tracker" 
+DATABASE_NAME = "finance_tracker_db"
 COLLECTIONS = { 
     "user": "users", 
     "transaction": "transactions", 
