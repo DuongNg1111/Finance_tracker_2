@@ -6,10 +6,11 @@ load_dotenv()
 APP_NAME = "FINANCE-TRACKER" 
 
 # Mongo configuration - compatible with both local and Streamlit Cloud
-try:
-    MONGO_URI = st.secrets["MONGO_URI"]
-except (FileNotFoundError, KeyError):
-    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+def get_mongo_uri():
+    try:
+        return st.secrets["MONGO_URI"]
+    except (FileNotFoundError, KeyError, AttributeError):
+        return os.getenv("MONGO_URI", "mongodb://localhost:27017")
 
 DATABASE_NAME = "finance_tracker_db"
 COLLECTIONS = { 
