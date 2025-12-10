@@ -1,24 +1,24 @@
 import os 
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv() 
 APP_NAME = "FINANCE-TRACKER" 
-# mongo configuration 
-MONGO_URI = os.getenv("MONGO_URI", "localhost:2017") 
+
+# Mongo configuration - compatible with both local and Streamlit Cloud
+try:
+    MONGO_URI = st.secrets["MONGO_URI"]
+except (FileNotFoundError, KeyError):
+    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+
 DATABASE_NAME = "finance_tracker" 
-# collections 
 COLLECTIONS = { 
     "user": "users", 
     "transaction": "transactions", 
     "category": "categories", 
-    "budget": "budgets" } 
+    "budget": "budgets" 
+} 
 
-# transaction types
- 
 TRANSACTION_TYPES = ['Expense', "Income"] 
-
-#categories of expense
-DEFAULT_CATEGORIES_EXPENSE = [ "Shopping", "Transportation", "Entertainment", "Others" ] 
-
-#categories of Income
-DEFAULT_CATEGORIES_INCOME = [ "Salary", "Freelance", "Gift/Voucher" ]
+DEFAULT_CATEGORIES_EXPENSE = ["Shopping", "Transportation", "Entertainment", "Others"] 
+DEFAULT_CATEGORIES_INCOME = ["Salary", "Freelance", "Gift/Voucher"]
