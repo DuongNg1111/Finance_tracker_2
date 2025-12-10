@@ -1,5 +1,5 @@
 import streamlit as st
-import config   
+import config     
 
 # import models
 from database.category_models import CategoryModel
