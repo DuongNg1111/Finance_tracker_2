@@ -1,7 +1,7 @@
-from .category_view import render_categories
-from .transaction_view import render_transactions
-from .user_view import render_user_profile
-from .home_views import render_dashboard
+from views.category_view import render_categories
+from views.transaction_view import render_transactions
+from views.user_view import render_user_profile
+from views.home_views import render_dashboard
 
 __all__ = [
     "render_categories",
