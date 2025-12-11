@@ -9,10 +9,9 @@ class DatabaseManager:
             cls._instance = super(DatabaseManager, cls).__new__(cls)
             cls._instance._initialize()
         return cls._instance
-        
+    
     def _initialize(self):
-        mongo_uri = config.get_mongo_uri()
-        self.client = MongoClient(mongo_uri)
+        self.client = MongoClient(config.MONGO_URI_FINAL)
         self.db = self.client[config.DATABASE_NAME]
         try:
             # test connection
