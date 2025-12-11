@@ -8,13 +8,14 @@ APP_NAME = "FINANCE-TRACKER"
 # Mongo configuration - compatible with both local and Streamlit Cloud
 def get_mongo_uri():
     try:
-        return st.secrets["MONGO_URI"]
+        return st.secrets["mongo"]["MONGO_URI"]
     except (FileNotFoundError, KeyError, AttributeError):
         env_uri = os.getenv("MONGO_URI")
         if not env_uri:
             raise ValueError("MongoDB Atlas URI not found in st.secrets or environment variables.")
         return env_uri
-    
+
+
 MONGO_URI_FINAL = get_mongo_uri()
 
 DATABASE_NAME = "finance_tracker_db"
