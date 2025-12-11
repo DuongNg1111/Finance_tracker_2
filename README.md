@@ -77,16 +77,19 @@ finance_tracker/
 ├── utils.py
 │
 ├── analytics/
+│   ├── __init.py
 │   ├── analyzer.py
 │   └── visualizer.py
 │
 ├── database/
+│   ├── __init.py
 │   ├── database_manager.py
 │   ├── category_models.py
 │   ├── transaction_models.py
 │   └── user_models.py
 │
 ├── views/
+│   ├── __init.py
 │   ├── home_views.py
 │   ├── user_views.py
 │   ├── transaction_views.py
@@ -94,6 +97,9 @@ finance_tracker/
 │   └── category_page.py
 │
 ├── hands-on/
+│   ├── date1.py
+│   ├── date3.py
+│   ├── date4.py
 ├── .streamlit/
 │   └── secrets.toml
 ├── screenshots/
