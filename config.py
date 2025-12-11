@@ -11,6 +11,7 @@ def get_mongo_uri():
         return st.secrets["MONGO_URI"]
     except (FileNotFoundError, KeyError, AttributeError):
         return os.getenv("MONGO_URI", "mongodb://localhost:27017")
+MONGO_URI_FINAL = get_mongo_uri()
 
 DATABASE_NAME = "finance_tracker_db"
 COLLECTIONS = { 
