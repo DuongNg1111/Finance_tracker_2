@@ -10,7 +10,11 @@ def get_mongo_uri():
     try:
         return st.secrets["MONGO_URI"]
     except (FileNotFoundError, KeyError, AttributeError):
-        return os.getenv("MONGO_URI", "mongodb://localhost:27017")
+        env_uri = os.getenv("MONGO_URI")
+        if not env_uri:
+            raise ValueError("MongoDB Atlas URI not found in st.secrets or environment variables.")
+        return env_uri
+    
 MONGO_URI_FINAL = get_mongo_uri()
 
 DATABASE_NAME = "finance_tracker_db"
