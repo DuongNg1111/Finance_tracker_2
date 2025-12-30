@@ -1,4 +1,4 @@
-from database.database_manager import DatabaseManager
+from .database_manager import DatabaseManager
 from typing import Optional
 from datetime import datetime
 from bson import ObjectId
