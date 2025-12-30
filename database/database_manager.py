@@ -1,4 +1,8 @@
 from pymongo import MongoClient, DESCENDING
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import config
 
 class DatabaseManager:
@@ -9,19 +13,31 @@ class DatabaseManager:
             cls._instance = super(DatabaseManager, cls).__new__(cls)
             cls._instance._initialize()
         return cls._instance
-    
+        
     def _initialize(self):
-        self.client = MongoClient(config.MONGO_URI_FINAL)
-        self.db = self.client[config.DATABASE_NAME]
+        import streamlit as st
+        
+        # 1. Thử lấy URI từ Streamlit Secrets trước (Dành cho bản Web)
         try:
-            # test connection
-            self.db.command("ping")
+            mongo_uri = st.secrets["mongo"]["MONGO_URI"]
+        except:
+            # 2. Nếu không có Secrets (chạy ở máy), mới dùng file config
+            mongo_uri = config.MONGO_URI_FINAL
 
-            # create or update index
+        # Kết nối với URI đã tìm được
+        self.client = MongoClient(mongo_uri)
+        
+        # Ép dùng đúng database name (bạn có thể thay thẳng tên vào đây cho chắc)
+        db_name = "finance_tracker_db" 
+        self.db = self.client[db_name]
+        
+        try:
+            # Kiểm tra kết nối
+            self.client.admin.command('ping')
+            print("Kết nối MongoDB thành công!")
             self._create_index()
-            print("Initialize DB success")
         except Exception as e:
-            print(f"Error in connect: {e}")
+            print(f"Lỗi kết nối: {e}")
             raise e
         
     def _create_index(self):
