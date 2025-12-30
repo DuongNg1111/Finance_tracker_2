@@ -1,5 +1,5 @@
 from .database_manager import DatabaseManager
-from .category_models import CategoryModel
+from .category_model import CategoryModel
 from .transaction_model import TransactionModel
 from .user_model import UserModel
 
