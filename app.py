@@ -2,7 +2,7 @@ import streamlit as st
 import config     
 
 # import models
-from database.category_model import CategoryModel
+from database.category_models import CategoryModel
 from database.transaction_model import TransactionModel
 from database.user_model import UserModel
 
